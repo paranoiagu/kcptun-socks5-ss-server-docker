@@ -21,8 +21,8 @@ SS_UDP=${SS_UDP:-true}                                        #-u support,
 SS_ONETIME_AUTH=${SS_ONETIME_AUTH:-false}                     #-A support,
 SS_FAST_OPEN=${SS_FAST_OPEN:-true}                            #--fast-open support,
 # ======= KCPTUN CONFIG ======
-KCPTUN_LISTEN=${KCPTUN_LISTEN:-45678}                         #"listen": ":45678",
-KCPTUN_SS_LISTEN=${KCPTUN_SS_LISTEN:-34567}                   #"listen": ":45678", kcptun for ss listen port
+KCPTUN_LISTEN=${KCPTUN_LISTEN:-4441}                         #"listen": ":45678",
+KCPTUN_SS_LISTEN=${KCPTUN_SS_LISTEN:-4442}                   #"listen": ":45678", kcptun for ss listen port
 KCPTUN_SOCKS5_PORT=${KCPTUN_SOCKS5_PORT:-12948}               #"socks_port": 12948,
 KCPTUN_KEY=${KCPTUN_KEY:-password}                            #"key": "password",
 KCPTUN_CRYPT=${KCPTUN_CRYPT:-salsa20}                         #"crypt": "salsa20",
