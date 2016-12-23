@@ -2,8 +2,8 @@
 FROM alpine:latest
 MAINTAINER cnDocker
 
-ENV SS_URL=https://github.com/shadowsocks/shadowsocks-libev/archive/v2.5.2.tar.gz \
-    SS_DIR=shadowsocks-libev-2.5.2 \
+ENV SS_URL=https://github.com/shadowsocks/shadowsocks-libev/archive/v2.5.6.tar.gz \
+    SS_DIR=shadowsocks-libev-2.5.6 \
     CONF_DIR="/usr/local/conf" \
     kcptun_latest="https://github.com/xtaci/kcptun/releases/latest" \
     KCPTUN_DIR=/usr/local/kcp-server
