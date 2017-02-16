@@ -18,7 +18,6 @@ SS_METHOD=${SS_METHOD:-aes-256-cfb}                           #"method":"aes-256
 SS_TIMEOUT=${SS_TIMEOUT:-600}                                 #"timeout":600,
 SS_DNS_ADDR=${SS_DNS_ADDR:-8.8.8.8}                           #-d "8.8.8.8",
 SS_UDP=${SS_UDP:-true}                                        #-u support,
-SS_ONETIME_AUTH=${SS_ONETIME_AUTH:-false}                     #-A support,
 SS_FAST_OPEN=${SS_FAST_OPEN:-true}                            #--fast-open support,
 # ======= KCPTUN CONFIG ======
 KCPTUN_LISTEN=${KCPTUN_LISTEN:-4441}                         #"listen": ":45678",
@@ -47,11 +46,6 @@ if [[ "${SS_UDP}" =~ ^[Tt][Rr][Uu][Ee]|[Yy][Ee][Ss]|1|[Ee][Nn][Aa][Bb][Ll][Ee]$ 
     SS_UDP_FLAG="-u "
 else
     SS_UDP_FLAG=""
-fi
-if [[ "${SS_ONETIME_AUTH}" =~ ^[Tt][Rr][Uu][Ee]|[Yy][Ee][Ss]|1|[Ee][Nn][Aa][Bb][Ll][Ee]$ ]]; then
-    SS_ONETIME_AUTH_FLAG="-A "
-else
-    SS_ONETIME_AUTH_FLAG=""
 fi
 if [[ "${SS_FAST_OPEN}" =~ ^[Tt][Rr][Uu][Ee]|[Yy][Ee][Ss]|1|[Ee][Nn][Aa][Bb][Ll][Ee]$ ]]; then
     SS_FAST_OPEN_FLAG="--fast-open"
@@ -104,7 +98,7 @@ echo ""
 # kcptunsocks-kcptunss
 if [[ "${RUNENV}" =~ ^[Kk][Cc][Pp][Tt][Uu][Nn][Ss][Oo][Cc][Kk][Ss]-[Kk][Cc][Pp][Tt][Uu][Nn][Ss][Ss]$ ]]; then
     echo "Starting Shadowsocks-libev..."
-    nohup ss-server -c ${SS_CONF} -d "${SS_DNS_ADDR}" ${SS_UDP_FLAG}${SS_ONETIME_AUTH_FLAG}${SS_FAST_OPEN_FLAG} >/dev/null 2>&1 &
+    nohup ss-server -c ${SS_CONF} -d "${SS_DNS_ADDR}" ${SS_UDP_FLAG} ${SS_FAST_OPEN_FLAG} >/dev/null 2>&1 &
     sleep 0.3
     echo "ss-server (pid `pidof ss-server`)is running."
     netstat -ntlup | grep ss-server
@@ -138,7 +132,7 @@ elif [[ "${RUNENV}" =~ ^[Kk][Cc][Pp][Tt][Uu][Nn][Ss][Oo][Cc][Kk][Ss]$ ]]; then
 # kcptunss
 elif [[ "${RUNENV}" =~ ^[Kk][Cc][Pp][Tt][Uu][Nn][Ss][Ss]$ ]]; then
     echo "Starting Shadowsocks-libev..."
-    nohup ss-server -c ${SS_CONF} -d "${SS_DNS_ADDR}" ${SS_UDP_FLAG}${SS_ONETIME_AUTH_FLAG}${SS_FAST_OPEN_FLAG} >/dev/null 2>&1 &
+    nohup ss-server -c ${SS_CONF} -d "${SS_DNS_ADDR}" ${SS_UDP_FLAG} ${SS_FAST_OPEN_FLAG} >/dev/null 2>&1 &
     sleep 0.3
     echo "ss-server (pid `pidof ss-server`)is running."
     netstat -ntlup | grep ss-server
@@ -152,7 +146,7 @@ elif [[ "${RUNENV}" =~ ^[Kk][Cc][Pp][Tt][Uu][Nn][Ss][Ss]$ ]]; then
 # ss
 elif [[ "${RUNENV}" =~ ^[Ss][Ss]$ ]]; then
     echo "Starting Shadowsocks-libev..."
-    exec "ss-server" -c ${SS_CONF} -d "${SS_DNS_ADDR}" ${SS_UDP_FLAG}${SS_ONETIME_AUTH_FLAG}${SS_FAST_OPEN_FLAG}
+    exec "ss-server" -c ${SS_CONF} -d "${SS_DNS_ADDR}" ${SS_UDP_FLAG} ${SS_FAST_OPEN_FLAG}
 else
     echo "RUNENV is ${RUNENV} setting error, start failed!"
 fi

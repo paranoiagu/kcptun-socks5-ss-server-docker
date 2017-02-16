@@ -1,0 +1,28 @@
+kcptun-socks5-ss-server:
+    image: paranoia/kcptun-socks5-ss-server-docker:latest
+    ports:
+      - '4321:4321'
+      - '4321:4321/udp'
+      - '4320:4320/udp'
+      - '4322:4322/udp'
+    environment:
+      - RUNENV=kcptunsocks-kcptunss
+      - SS_SERVER_ADDR=0.0.0.0
+      - SS_SERVER_PORT=4321
+      - SS_PASSWORD=4ie32YLmfHwnkKcK
+      - SS_METHOD=rc4-md5
+      - SS_DNS_ADDR=8.8.8.8
+      - SS_UDP=true
+      - SS_FAST_OPEN=false
+      - KCPTUN_LISTEN=4322
+      - KCPTUN_SS_LISTEN=4320
+      - KCPTUN_SOCKS5_PORT=12948
+      - KCPTUN_KEY=4ie32YLmfHwnkKcK
+      - KCPTUN_CRYPT=salsa20
+      - KCPTUN_MODE=fast2
+      - KCPTUN_MTU=1400
+      - KCPTUN_SNDWND=2048
+      - KCPTUN_RCVWND=2048
+      - KCPTUN_NOCOMP=false
+    restart: always
+
