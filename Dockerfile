@@ -4,8 +4,8 @@ MAINTAINER Gu Yanfeng <gu.yanfeng@gmail.com>
 # 替换阿里云源
 #RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/' /etc/apk/repositories
 
-ENV SS_URL=https://github.com/shadowsocks/shadowsocks-libev/archive/v2.6.3.tar.gz \
-    SS_DIR=shadowsocks-libev-2.6.3 \
+ENV SS_URL=https://github.com/shadowsocks/shadowsocks-libev/archive/v2.6.2.tar.gz \
+    SS_DIR=shadowsocks-libev-2.6.2 \
     CONF_DIR="/usr/local/conf" \
     kcptun_latest="https://github.com/xtaci/kcptun/releases/latest" \
     KCPTUN_DIR=/usr/local/kcp-server
