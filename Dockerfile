@@ -1,6 +1,6 @@
 # kcp-server & shadowsocks-libev for Dockerfile
 FROM alpine:latest
-MAINTAINER cnDocker
+MAINTAINER Gu Yanfeng <gu.yanfeng@gmail.com>
 # 替换阿里云源
 #RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.aliyun.com/' /etc/apk/repositories
 
