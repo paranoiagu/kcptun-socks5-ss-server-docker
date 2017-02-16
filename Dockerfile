@@ -51,6 +51,8 @@ RUN set -ex && \
     rm -rf /tmp/* && \
     rm -rf /var/cache/apk/* ~/.cache /tmp/libsodium
 
+RUN apk add --no-cache pcre bash
+
 ADD entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]

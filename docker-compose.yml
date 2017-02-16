@@ -6,7 +6,7 @@ kcptun-socks5-ss-server:
       - '4320:4320/udp'
       - '4322:4322/udp'
     environment:
-      - RUNENV=kcptunsocks-kcptunss
+      - RUNENV=kcptunss  # kcptunsocks 打开有问题，找不到sock5 这个命令
       - SS_SERVER_ADDR=0.0.0.0
       - SS_SERVER_PORT=4321
       - SS_PASSWORD=4ie32YLmfHwnkKcK
